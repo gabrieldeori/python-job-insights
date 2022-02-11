@@ -83,6 +83,7 @@ def matches_salary_range(job, salary):
 
     return max_salary >= salary >= min_salary
 
+
 def match_noraise_salary_range(job, salary):
     if TABLE_MIN_SALARY not in job.keys()\
             or TABLE_MAX_SALARY not in job.keys():
@@ -99,7 +100,6 @@ def match_noraise_salary_range(job, salary):
         return False
 
     return max_salary >= salary >= min_salary
-
 
 
 def filter_by_salary_range(jobs, salary):

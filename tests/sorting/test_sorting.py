@@ -40,4 +40,3 @@ def test_sort_by_criteria():
     assert sort_by(f_jobs, "min_salary") == criterias_response["min_salary"]
     assert sort_by(f_jobs, "max_salary") == criterias_response["max_salary"]
     assert sort_by(f_jobs, "date_posted") == criterias_response["date_posted"]
-    assert sort_by(f_jobs, "date_posted") == criterias_response["date_posted"]
