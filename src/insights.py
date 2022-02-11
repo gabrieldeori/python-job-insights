@@ -1,4 +1,7 @@
-from jobs import read
+from src.jobs import read
+
+
+TABLE_JOB_TYPE = 'job_type'
 
 
 def get_uniques(path, of_type):
@@ -10,24 +13,12 @@ def get_uniques(path, of_type):
         if unique_type.isnumeric():
             unique_type = int(unique_type)
         unique_type_list.add(unique_type)
+    return unique_type_list
 
 
 def get_unique_job_types(path):
-    """Checks all different job types and returns a list of them
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique job types
-    """
-    return []
+    job_type_list = get_uniques(path, TABLE_JOB_TYPE)
+    return job_type_list
 
 
 def filter_by_job_type(jobs, job_type):
