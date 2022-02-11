@@ -80,22 +80,31 @@ def matches_salary_range(job, salary):
 
     if max_salary < min_salary:
         raise ValueError("Salário mínimo menor que o máximo")
+
+    return max_salary >= salary >= min_salary
+
+def match_noraise_salary_range(job, salary):
+    if TABLE_MIN_SALARY not in job.keys()\
+            or TABLE_MAX_SALARY not in job.keys():
+        return False
+
+    min_salary = job[TABLE_MIN_SALARY]
+    max_salary = job[TABLE_MAX_SALARY]
+    check_validate = [max_salary, min_salary, salary]
+
+    if not all(isinstance(num, int) for num in check_validate):
+        return False
+
+    if max_salary < min_salary:
+        return False
+
     return max_salary >= salary >= min_salary
 
 
+
 def filter_by_salary_range(jobs, salary):
-    """Filters a list of jobs by salary range
-
-    Parameters
-    ----------
-    jobs : list
-        The jobs to be filtered
-    salary : int
-        The salary to be used as filter
-
-    Returns
-    -------
-    list
-        Jobs whose salary range contains `salary`
-    """
-    return []
+    jobs_in_range = []
+    for job in jobs:
+        if match_noraise_salary_range(job, salary):
+            jobs_in_range.append(job)
+    return jobs_in_range
