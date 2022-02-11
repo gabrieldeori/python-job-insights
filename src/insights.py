@@ -2,6 +2,9 @@ from src.jobs import read
 
 
 TABLE_JOB_TYPE = 'job_type'
+TABLE_INDUSTRY = 'industry'
+TABLE_MAX_SALARY = 'max_salary'
+TABLE_MIN_SALARY = 'min_salary'
 
 
 def get_uniques_strings(path, of_type):
@@ -49,7 +52,7 @@ def filter_by_job_type(jobs, job_type):
 
 
 def get_unique_industries(path):
-    industries_type_list = get_uniques_strings(path, 'industry')
+    industries_type_list = get_uniques_strings(path, TABLE_INDUSTRY)
     return industries_type_list
 
 
