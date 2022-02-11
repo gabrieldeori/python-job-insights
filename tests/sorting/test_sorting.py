@@ -32,11 +32,14 @@ f_jobs = [
 criterias_response = {
         "min_salary": [f_jobs[3], f_jobs[0], f_jobs[1], f_jobs[2]],
         "max_salary": [f_jobs[2], f_jobs[1], f_jobs[0], f_jobs[3]],
-        "date_posted": [f_jobs[3], f_jobs[0], f_jobs[1], f_jobs[2]],
+        "date_posted": [f_jobs[2], f_jobs[1], f_jobs[0], f_jobs[3]],
     }
 
 
 def test_sort_by_criteria():
-    assert sort_by(f_jobs, "min_salary") == criterias_response["min_salary"]
-    assert sort_by(f_jobs, "max_salary") == criterias_response["max_salary"]
-    assert sort_by(f_jobs, "date_posted") == criterias_response["date_posted"]
+    sort_by(f_jobs, "min_salary")
+    assert f_jobs == criterias_response["min_salary"]
+    sort_by(f_jobs, "max_salary")
+    assert f_jobs == criterias_response["max_salary"]
+    sort_by(f_jobs, "date_posted")
+    assert f_jobs == criterias_response["date_posted"]
