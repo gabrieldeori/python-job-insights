@@ -13,7 +13,8 @@ def get_uniques(path, of_type):
         if unique_type.isnumeric():
             unique_type = int(unique_type)
         unique_type_list.add(unique_type)
-    return unique_type_list
+    filtered_list = [unique for unique in unique_type_list if unique != ""]
+    return filtered_list
 
 
 def get_unique_job_types(path):
