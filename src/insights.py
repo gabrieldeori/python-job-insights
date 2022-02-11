@@ -23,8 +23,10 @@ def get_uniques_numbers(path, of_type):
     number_type_list = []
 
     for number in number_list:
-        number_type = int(number[of_type])
-        number_type_list.add(number_type)
+        number_type = number[of_type]
+        if number_type.isnumeric():
+            number_type = int(number_type)
+            number_type_list.append(number_type)
     return number_type_list
 
 
@@ -75,21 +77,10 @@ def filter_by_industry(jobs, industry):
 
 
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
+    list_max_salary = get_uniques_numbers(path, TABLE_MAX_SALARY)
+    max_salary = max(list_max_salary)
 
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
+    return max_salary
 
 
 def get_min_salary(path):
