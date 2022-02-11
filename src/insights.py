@@ -67,8 +67,13 @@ def get_min_salary(path):
 
 
 def matches_salary_range(job, salary):
-    """Checks if a given salary is in the salary range of a given job
+    print(job)
+    if ( job[TABLE_MAX_SALARY] < job[TABLE_MIN_SALARY]):
+        raise ValueError("Salário mínimo menor que o máximo")
 
+
+    """Checks if a given salary is in the salary range of a given job
+    
     Parameters
     ----------
     job : dict
@@ -89,7 +94,7 @@ def matches_salary_range(job, salary):
         If `job["min_salary"]` is greather than `job["max_salary"]`
         If `salary` isn't a valid integer
     """
-    pass
+    return []
 
 
 def filter_by_salary_range(jobs, salary):
