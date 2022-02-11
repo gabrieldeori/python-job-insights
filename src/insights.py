@@ -70,6 +70,11 @@ def matches_salary_range(job, salary):
     print(job, salary)
     min_salary = job[TABLE_MIN_SALARY]
     max_salary = job[TABLE_MAX_SALARY]
+    check_validate = [max_salary, min_salary, salary]
+
+    if not all(isinstance(num, int) for num in check_validate):
+        raise ValueError("Algum dos valores não é inteiro")
+
     if max_salary < min_salary:
         raise ValueError("Salário mínimo menor que o máximo")
     return max_salary >= salary >= min_salary
