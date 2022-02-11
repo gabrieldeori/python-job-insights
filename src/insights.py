@@ -67,11 +67,12 @@ def get_min_salary(path):
 
 
 def matches_salary_range(job, salary):
+    print(job, salary)
     min_salary = job[TABLE_MIN_SALARY]
     max_salary = job[TABLE_MAX_SALARY]
-    if (max_salary < min_salary):
+    if max_salary < min_salary:
         raise ValueError("Salário mínimo menor que o máximo")
-    return max_salary > salary > min_salary
+    return max_salary >= salary >= min_salary
 
 
 def filter_by_salary_range(jobs, salary):
