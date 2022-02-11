@@ -4,21 +4,29 @@ from src.jobs import read
 TABLE_JOB_TYPE = 'job_type'
 
 
-def get_uniques(path, of_type):
+def get_uniques_strings(path, of_type):
     unique_list = read(path)
     unique_type_list = set()
 
     for unique in unique_list:
         unique_type = unique[of_type]
-        if unique_type.isnumeric():
-            unique_type = int(unique_type)
         unique_type_list.add(unique_type)
     filtered_list = [unique for unique in unique_type_list if unique != ""]
     return filtered_list
 
 
+def get_uniques_numbers(path, of_type):
+    number_list = read(path)
+    number_type_list = []
+
+    for number in number_list:
+        number_type = int(number[of_type])
+        number_type_list.add(number_type)
+    return number_type_list
+
+
 def get_unique_job_types(path):
-    job_type_list = get_uniques(path, TABLE_JOB_TYPE)
+    job_type_list = get_uniques_strings(path, TABLE_JOB_TYPE)
     return job_type_list
 
 
@@ -41,7 +49,7 @@ def filter_by_job_type(jobs, job_type):
 
 
 def get_unique_industries(path):
-    industries_type_list = get_uniques(path, 'industry')
+    industries_type_list = get_uniques_strings(path, 'industry')
     return industries_type_list
 
 
