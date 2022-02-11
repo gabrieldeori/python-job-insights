@@ -1,3 +1,17 @@
+from jobs import read
+
+
+def get_uniques(path, of_type):
+    unique_list = read(path)
+    unique_type_list = set()
+
+    for unique in unique_list:
+        unique_type = unique[of_type]
+        if unique_type.isnumeric():
+            unique_type = int(unique_type)
+        unique_type_list.add(unique_type)
+
+
 def get_unique_job_types(path):
     """Checks all different job types and returns a list of them
 
