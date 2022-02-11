@@ -67,7 +67,6 @@ def get_min_salary(path):
 
 
 def matches_salary_range(job, salary):
-    print(job, salary)
     if TABLE_MIN_SALARY not in job.keys()\
             or TABLE_MAX_SALARY not in job.keys():
         raise ValueError("Algum dos valores não está presente")
