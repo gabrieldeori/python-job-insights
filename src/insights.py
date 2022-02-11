@@ -7,6 +7,10 @@ TABLE_MAX_SALARY = 'max_salary'
 TABLE_MIN_SALARY = 'min_salary'
 
 
+def filter_jobs_by(jobs, role_name, role):
+    return [job for job in jobs if job[role_name] == role]
+
+
 def get_uniques_strings(path, of_type):
     unique_list = read(path)
     unique_type_list = set()
@@ -36,7 +40,7 @@ def get_unique_job_types(path):
 
 
 def filter_by_job_type(jobs, job_type):
-    return [job for job in jobs if job[TABLE_JOB_TYPE] == job_type]
+    return filter_jobs_by(jobs, TABLE_JOB_TYPE, job_type)
 
 
 def get_unique_industries(path):
@@ -45,7 +49,7 @@ def get_unique_industries(path):
 
 
 def filter_by_industry(jobs, industry):
-    return [job for job in jobs if job[TABLE_INDUSTRY] == industry]
+    return filter_jobs_by(jobs, TABLE_INDUSTRY, industry)
 
 
 def get_max_salary(path):
